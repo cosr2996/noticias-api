@@ -31,7 +31,15 @@ const Noticia = ({ noticia }) => {
         </CardContent>
 
         <CardActions>
-          <Link href={url} target="_blanck" variant="button" width={'100%'} textAlign={'center'}>Leer Noticia</Link>
+          <Link
+            href={url}
+            target="_blanck"
+            variant="button"
+            width={"100%"}
+            textAlign={"center"}
+          >
+            Leer Noticia
+          </Link>
         </CardActions>
       </Card>
     </Grid>
