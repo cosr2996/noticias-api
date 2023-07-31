@@ -7,10 +7,11 @@ const NoticiasProvider = ({ children }) => {
   const [noticias, setNoticias] = useState([]);
   const [pagina, setPagina] = useState(1);
   const [totalNoticias, setTotalNoticias] = useState(0);
+  const key = import.meta.env.VITE_API_KEY
 
   useEffect(() => {
     const consultarApi = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&apikey=${import.meta.env.VITE_API_KEY}`;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${categoria}&apikey=${key}`;
 
       const { data } = await axios(url);
       setNoticias(data.articles);
@@ -20,8 +21,9 @@ const NoticiasProvider = ({ children }) => {
     consultarApi();
   }, [categoria]);
   useEffect(() => {
+    
     const consultarApi = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=us&page=${pagina}&category=${categoria}&page=2&apikey=${import.meta.env.VITE_API_KEY}`;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&page=${pagina}&category=${categoria}&page=2&apikey=${key}`;
 
       const { data } = await axios(url);
       setNoticias(data.articles);
